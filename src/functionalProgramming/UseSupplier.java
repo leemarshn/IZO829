@@ -19,7 +19,6 @@ public class UseSupplier {
         System.out.println(d2);
         System.out.println(localDate);
 
-
         Supplier<ArrayList<String>> s3 = ArrayList::new;
         ArrayList<String> a1 = s3.get();
 
