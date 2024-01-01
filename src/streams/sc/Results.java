@@ -30,7 +30,7 @@ public class Results {
 
         ArrayList<Test> tests = new ArrayList<>();
 
-        tests.add(new Test(s1,unit1, TestType.CAT, 15,30, 234));
+        tests.add(new Test(s1,unit1, TestType.CAT, 15,30, 23));
         tests.add(new Test(s1,unit1, TestType.CAT, 15, 40,26));
         tests.add(new Test(s1,unit1, TestType.MAIN_EXAM, 70, 70, 66));
         tests.add(new Test(s1,unit2, TestType.CAT, 15,30, 23));
@@ -42,33 +42,43 @@ public class Results {
         tests.add(new Test(s2,unit1, TestType.MAIN_EXAM,  66));
         tests.add(new Test(s2,unit2, TestType.CAT, 15,30, 23));
         tests.add(new Test(s2,unit2, TestType.CAT, 15,30,23));
-        tests.add(new Test(s2,unit2, TestType.MAIN_EXAM, 45));
+        tests.add(new Test(s2,unit2, TestType.MAIN_EXAM, 20));
+
+        tests.add(new Test(s3,unit3, TestType.CAT, 15,30, 22));
+        tests.add(new Test(s3,unit3, TestType.CAT, 15, 40,33));
+        tests.add(new Test(s3,unit3, TestType.MAIN_EXAM,  12));
+        tests.add(new Test(s3,unit4, TestType.CAT, 15,30, 12));
+        tests.add(new Test(s3,unit4, TestType.CAT, 15,30,9));
+        tests.add(new Test(s3,unit4, TestType.MAIN_EXAM, 400));
 
 
         results.printResults(results.listResults(tests));
     }
 
     Map<Student, Map<Unit, Integer>>  listResults(ArrayList<Test> tests){
-        Map<Student, Map<Unit, Integer>> resultsSet = tests.stream()
+
+        return tests.stream()
 //                .filter(test -> test.testType() == TestType.CAT)
                 .collect(Collectors.groupingBy(Test::student,
                         Collectors.groupingBy(Test::unit,
                                 Collectors.summingInt(Test::getCalculatedScore))));
-
-        return resultsSet;
     }
     public void printResults(Map<Student, Map<Unit, Integer>> resultsSet){
+        Results results = new Results();
         for (Map.Entry<Student, Map<Unit, Integer>> studentEntry : resultsSet.entrySet()) {
             Student student = studentEntry.getKey();
             Map<Unit, Integer> unitResults = studentEntry.getValue();
 
-            System.out.println("Student: " + student);
+            System.out.println(student.id() + " " + student.name());
 
             for (Map.Entry<Unit, Integer> unitEntry : unitResults.entrySet()) {
                 Unit unit = unitEntry.getKey();
                 int score = unitEntry.getValue();
 
-                System.out.println("  Unit: " + unit + ", Score: " + score);
+                if (score>100)
+                    score = 8888;
+
+                System.out.println(unit.code() + " - " + unit.name() + ": " + score + " - " + results.getGrade(score));
             }
         }
     }
