@@ -12,20 +12,6 @@ public record Test(Student student, Unit unit, TestType testType, float testWeig
                 score);
     }
 
-//    public Test(Student student, Unit unit, TestType testType, int score) {
-//        int total;
-//        int weight;
-//        if (testType()==TestType.CAT){
-//            total = TestType.CAT.getMax_score();
-//            weight = TestType.CAT.getMax_maxWeight();
-//        }else {
-//            total = TestType.MAIN_EXAM.getMax_score();
-//            weight = TestType.MAIN_EXAM.getMax_maxWeight();
-//        }
-//
-//        this(student, unit, testType, weight , total, score);
-//    }
-
     public int getCalculatedScore() {
         if (testType() == TestType.CAT) {
             float newScore = score * (testWeight/testTotal);

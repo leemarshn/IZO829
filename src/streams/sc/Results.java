@@ -12,6 +12,8 @@ public class Results {
 
     public static void main(String[] args) {
 
+        Results results = new Results();
+
         Student s1 = new Student(111, "LeeN");
         Student s2 = new Student(112, "Steeve");
         Student s3 = new Student(112, "Jackie");
@@ -43,22 +45,32 @@ public class Results {
         tests.add(new Test(s2,unit2, TestType.MAIN_EXAM, 45));
 
 
-        new Results().listResults(tests);
+        results.printResults(results.listResults(tests));
     }
 
-    void listResults(ArrayList<Test> tests){
-        Map<Student, Map<Unit, Integer>> catMarks = tests.stream()
+    Map<Student, Map<Unit, Integer>>  listResults(ArrayList<Test> tests){
+        Map<Student, Map<Unit, Integer>> resultsSet = tests.stream()
 //                .filter(test -> test.testType() == TestType.CAT)
                 .collect(Collectors.groupingBy(Test::student,
                         Collectors.groupingBy(Test::unit,
                                 Collectors.summingInt(Test::getCalculatedScore))));
 
-        System.out.println(catMarks);
-
+        return resultsSet;
     }
+    public void printResults(Map<Student, Map<Unit, Integer>> resultsSet){
+        for (Map.Entry<Student, Map<Unit, Integer>> studentEntry : resultsSet.entrySet()) {
+            Student student = studentEntry.getKey();
+            Map<Unit, Integer> unitResults = studentEntry.getValue();
 
-    public void printResults(ArrayList<Test> tests){
-        System.out.println(tests);
+            System.out.println("Student: " + student);
+
+            for (Map.Entry<Unit, Integer> unitEntry : unitResults.entrySet()) {
+                Unit unit = unitEntry.getKey();
+                int score = unitEntry.getValue();
+
+                System.out.println("  Unit: " + unit + ", Score: " + score);
+            }
+        }
     }
 
 
