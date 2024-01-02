@@ -15,3 +15,6 @@
 
 ### Optional
 * `ifPresent(Consumer c)` Calls Consumer with value
+
+### partitioning
+* Partitioning is a special case of grouping. With partitioning, there are only two possible groups: true and false
