@@ -63,6 +63,7 @@ public class Results {
                         Collectors.groupingBy(Test::unit,
                                 Collectors.summingInt(Test::getCalculatedScore))));
     }
+
     public void printResults(Map<Student, Map<Unit, Integer>> resultsSet){
         Results results = new Results();
         for (Map.Entry<Student, Map<Unit, Integer>> studentEntry : resultsSet.entrySet()) {
