@@ -16,5 +16,13 @@
 ### Optional
 * `ifPresent(Consumer c)` Calls Consumer with value
 
+* spliterators are iterators that provide support for parallel iteration
+
+
 ### partitioning
 * Partitioning is a special case of grouping. With partitioning, there are only two possible groups: true and false
+
+## Collections
+* The Java Collections Framework standardizes the way in which groups of objects are handled by programs
+* Algorithms operate on collections and are defined as _**static**_ methods within the Collections class
+* There is something called `NavigableSet<E>` that extends `SortedSet<E>` oh!, you want to be a master of such!!!
