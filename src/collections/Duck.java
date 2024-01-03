@@ -8,12 +8,8 @@ import java.util.Comparator;
  * Created by Lee N on 03, Wed,Jan,2024.
  */
 public class Duck implements Comparable<Duck> {
-    private String name;
-    private int weight;
-
-
-    // Assume getters/setters/constructors provided
-
+    private final String name;
+    private final int weight;
 
     public Duck(String name, int weight) {
         this.name = name;
