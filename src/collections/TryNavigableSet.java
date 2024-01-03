@@ -25,8 +25,6 @@ public class TryNavigableSet {
         nums.add(20);
 
         int e = 20;
-        int start = 50;
-        int end = 150;
         System.out.println("HeadSet:" + nums.headSet(e, true)); //elements below given element inclusive ifTrue
         System.out.println("ceiling:" + nums.ceiling(e)); // e >= obj return smallest -> it's reverse is floor
         System.out.println("higher:" + nums.higher(e)); // e > obj return smallest -> reverse is lower

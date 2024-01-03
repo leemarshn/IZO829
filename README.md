@@ -15,7 +15,6 @@
 
 ### Optional
 * `ifPresent(Consumer c)` Calls Consumer with value
-
 * spliterators are iterators that provide support for parallel iteration
 
 
@@ -26,3 +25,5 @@
 * The Java Collections Framework standardizes the way in which groups of objects are handled by programs
 * Algorithms operate on collections and are defined as _**static**_ methods within the Collections class
 * There is something called `NavigableSet<E>` that extends `SortedSet<E>` oh!, you want to be a master of such!!!
+* `offer() `only attempts to add an element to a queue. Because some **queues** have a fixed length and might be full, offer( ) can fail
+* `ListIterator` extends `Iterator` to allow bidirectional traversal of a list, and the modification of elements.
