@@ -27,3 +27,4 @@
 * There is something called `NavigableSet<E>` that extends `SortedSet<E>` oh!, you want to be a master of such!!!
 * `offer() `only attempts to add an element to a queue. Because some **queues** have a fixed length and might be full, offer( ) can fail
 * `ListIterator` extends `Iterator` to allow bidirectional traversal of a list, and the modification of elements.
+* `Comparable` is an interface and `comparator` is a class
