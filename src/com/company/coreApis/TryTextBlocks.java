@@ -25,9 +25,6 @@ public class TryTextBlocks {
                 """;
         var par2 = par.stripIndent();
 
-//        System.out.println(par);
-//        System.out.println(par.length());
-//        System.out.println(par2);
-//        System.out.println(par2.length());
+
     }
 }
